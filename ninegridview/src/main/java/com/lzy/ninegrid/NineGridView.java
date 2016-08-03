@@ -21,6 +21,7 @@ public class NineGridView extends ViewGroup {
 
     private static ImageLoader mImageLoader;        //全局的图片加载器(必须设置,否者不显示图片)
 
+    private static ImageLoader mPreViewImageLoader;
     private int singleImageSize = 250;              // 单张图片时的最大大小,单位dp
     private float singleImageRatio = 1.0f;          // 单张图片的宽高比(宽/高)
     private int maxImageSize = 9;                   // 最大显示的图片数
@@ -219,6 +220,14 @@ public class NineGridView extends ViewGroup {
         return mImageLoader;
     }
 
+    public static void setPreViewImageLoader(ImageLoader imageLoader) {
+        mPreViewImageLoader = imageLoader;
+    }
+
+
+    public static ImageLoader getPreViewImageLoader(){
+        return mPreViewImageLoader;
+    }
     public interface ImageLoader {
         /**
          * 需要子类实现该方法，以确定如何加载和显示图片
